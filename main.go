@@ -8,6 +8,7 @@ import (
 	"net/http"
 	"net/url"
 	"os"
+	"time"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -16,6 +17,10 @@ var (
 	port  = os.Getenv("PORT")
 	dbUrl = os.Getenv("DATABASE_URL")
 )
+
+func init() {
+	time.Sleep(3 * time.Second)
+}
 
 func main() {
 	uri, _ := url.Parse(dbUrl)
